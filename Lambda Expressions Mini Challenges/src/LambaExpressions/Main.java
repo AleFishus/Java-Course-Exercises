@@ -2,10 +2,12 @@ package LambaExpressions;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+import java.util.function.UnaryOperator;
 
 public class Main {
     public static void main(String[] args) {
 
+        //CHALLENGE 1 "CONSUMER"
         Consumer<String> printTheParts = new Consumer<String>() {
             @Override
             public void accept(String sentence) {
@@ -21,10 +23,33 @@ public class Main {
             Arrays.asList(parts).forEach( word -> System.out.println(word));
         };
 
-        printTheParts.accept("This is the sentence we will use to test the anonymous class");
+        printTheParts.accept("This is the sentence we will use to test");
         System.out.println("---------------------");
-        printThePart.accept("This is the sentence we will use to test the lambda expression");
+        printThePart.accept("This is the sentence we will use to test");
 
+        //CHALLENGE 2 "FUNCTION"
+        System.out.println("---------------------");
+        System.out.println( everySecondChar("Hello how are you?" ));
+        UnaryOperator<String> printEverySecondChar = (sentence) -> {
+            StringBuilder returnVal = new StringBuilder();
+            for (int i = 0 ; i < sentence.length() ; i++){
+                if (i % 2 == 1){
+                    returnVal.append(sentence.charAt(i));
+                }
+            }
+            return returnVal.toString();
+        };
+        System.out.println( printEverySecondChar.apply("Hello how are you?" ));
+    }
 
+    // CHALLENGE 2 "FUNCTION"
+    public static String everySecondChar(String source){
+        StringBuilder returnVal = new StringBuilder();
+        for (int i = 0 ; i < source.length() ; i++){
+            if (i % 2 == 1){
+                returnVal.append(source.charAt(i));
+            }
+        }
+        return returnVal.toString();
     }
 }
