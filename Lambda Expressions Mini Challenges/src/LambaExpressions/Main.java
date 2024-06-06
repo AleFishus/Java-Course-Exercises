@@ -45,6 +45,18 @@ public class Main {
         System.out.println("---------------------");
         System.out.println( everySecondChar("1234567890" ));
         System.out.println( printEverySecondChar.apply("1234567890" ));
+
+        //CHALLENGE 5 "CALL THE METHOD CREATED IN CH4"
+        System.out.println("---------------------");
+        String parameterForUnaryOperator = "1234567890";
+        System.out.println(unaryOperatorToPassEverySecondChar(parameterForUnaryOperator, (sentence) -> {
+            StringBuilder returnVal = new StringBuilder();
+            for (int i = 0 ; i < sentence.length() ; i++) if (i % 2 == 1) returnVal.append(sentence.charAt(i));
+            return returnVal.toString();
+        }));
+        String result = unaryOperatorToPassEverySecondChar(parameterForUnaryOperator, Main::everySecondChar);
+        System.out.println(result);
+
     }
 
 
@@ -58,5 +70,10 @@ public class Main {
             }
         }
         return returnVal.toString();
+    }
+    //CHALLENGE 4 "CREATE A METHOD WHICH ACCEPTS A FUNCTION AND A PARAMETER"
+    public static String unaryOperatorToPassEverySecondChar(String word, UnaryOperator<String> unaryOp){
+        return unaryOp.apply(word);
+
     }
 }
