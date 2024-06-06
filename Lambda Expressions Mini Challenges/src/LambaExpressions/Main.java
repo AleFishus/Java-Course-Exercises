@@ -2,6 +2,7 @@ package LambaExpressions;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 public class Main {
@@ -57,6 +58,11 @@ public class Main {
         String result = unaryOperatorToPassEverySecondChar(parameterForUnaryOperator, Main::everySecondChar);
         System.out.println(result);
 
+        //CHALLENGE 6 AND 7 "CREATE SUPPLIER AND USE METHOD GET"
+        System.out.println("---------------------");
+        Supplier<String> iLoveJava = () -> "I love java";
+        String supplierResult = iLoveJava.get();
+        System.out.println(supplierResult);
     }
 
 
