@@ -40,7 +40,14 @@ public class Main {
             return returnVal.toString();
         };
         System.out.println( printEverySecondChar.apply("Hello how are you?" ));
+
+        //CHALLENGE 3 "TEST CHALLENGE2"
+        System.out.println("---------------------");
+        System.out.println( everySecondChar("1234567890" ));
+        System.out.println( printEverySecondChar.apply("1234567890" ));
     }
+
+
 
     // CHALLENGE 2 "FUNCTION"
     public static String everySecondChar(String source){
